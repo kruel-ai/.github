@@ -2,45 +2,28 @@
 
 **The first Agent Memory System.**
 
-We build distributed AI with shared memory, reasoning, and identity—agents that persist context, use tools, and improve over time across the stack.
+---
+
+## What we're building
+
+kruel.ai is building AI that **remembers**—with recall of conversations, documents, and code in full context, not just summaries. We focus on **advanced memory architecture**: multi-dimensional memory that preserves context across interactions, **entity intelligence** that keeps people and concepts straight over time, and **cross-domain intelligence** that links conversation, documents, and code in one unified view.
+
+We're building the **memory and cognitive backbone** for agentic AI: so assistants and systems can have continuous context, understand not only what you say but how you feel about it, and adapt accordingly—with **privacy-first** design and user control over data and connectivity.
+
+Our public site at [kruel.ai](https://kruel.ai) describes our advanced system and its capabilities (multimodal understanding, intelligent orchestration, voice, research, creative AI). Implementation details stay private; this repo is part of that ecosystem.
+
+K9 and KX are **research systems**—different approaches to the same goal (agent memory, orchestration, context). They explore alternative architectures and workflows; the public site reflects our production system.
 
 ---
 
-## High-level view
+## Overview
 
-kruel.ai is a **Proto-AGI ecosystem**: multiple AI systems that share a common cognitive architecture (memory, tools, persona) and can run side by side for production, experimentation, and evolution.
-
-| System | Role | Architecture |
-|--------|------|--------------|
-| **kruel-v8-manns** | Production Proto-AGI | HTTP API, 42 tools, MCP, dual memory, TTS. Primary production server. |
-| **K9-spark** | KRUEL-V9 AGI | WebSocket + subsystems, dedicated Neo4j, React frontend. Predecessor to V8, still in use. |
-| **KX** | Experimental refactor | FastAPI, single-agent loop (CompleteAgent pipeline). Simplified orchestration, same memory stack. |
-
-All three use the same **memory backbone** (Neo4j + FAISS), **MCP (Model Context Protocol)** for tools and context, and **LLM integration** (Ollama, llama.cpp, OpenAI-compatible, Nemotron). They differ in orchestration style and deployment.
+- **Company**: kruel.ai  
+- **Focus**: Agent memory, photographic recall, cross-domain intelligence, and shared cognitive infrastructure for AI systems.  
+- **Stage**: Active R&D and production use; we run our own systems on this stack.
 
 ---
 
-## Shared architecture
+## Contact
 
-- **Dual memory** — Neo4j for graph/entities/temporal queries; FAISS for semantic vector search. One backbone, shared across instances.
-- **MCP** — Memory tools (`store` / `retrieve` / `context`), code tools (`search` / `kruel_code`), communication (`kruel_communicate`), and cognitive tools (`evaluate_reasoning`, `check_beliefs`).
-- **LLM** — Local (llama.cpp, Ollama) and API (OpenAI-compatible, Nemotron). Same persona and memory context regardless of backend.
-- **Workflow** — User input → intent → orchestration → tool selection & execution → memory update → response (and optional TTS). KX compresses this into a single CompleteAgent pipeline (Now Memory → Context → Persona → Goal → Tools → Guidance → LLM → Store).
-
-Frontends (e.g. K9 React app, KXclient desktop overlay) and infra (Docker, spark-build) sit on top of these backends.
-
----
-
-## Repositories
-
-This org holds the **kruel.ai** codebase and related projects: production and experimental AI servers, frontends, inference stacks, and infrastructure. We're organizing repos and defaults here (`.github`) so the whole org stays consistent and easy to navigate.
-
-- **Production AI**: kruel-v8-manns, K9-spark  
-- **Experimental**: KX (kx-server)  
-- **Clients & frontends**: k9-frontend, KXclient  
-- **Infrastructure**: spark-build (Docker/compose), playbooks  
-- **Inference & models**: llama.cpp, Nemotron, ComfyUI, intent_service, etc.
-
----
-
-[kruel.ai](https://kruel.ai) · [bparry@kruel.ai](mailto:bparry@kruel.ai) · [LinkedIn](https://www.linkedin.com/in/bennett-parry-96441184)
+[kruel.ai](https://kruel.ai) · [bparry@kruel.ai](mailto:bparry@kruel.ai)
